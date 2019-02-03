@@ -2,7 +2,7 @@
 
 def crypt_text(mytext):
 
-	key = 2#input("Enter your Key :")
+	key = input("Enter your Key :")
 	mylst = []
 	mode = "Encrypt" # or Decrypt
 
