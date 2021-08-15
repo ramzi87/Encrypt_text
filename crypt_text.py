@@ -1,23 +1,32 @@
+from os import lchown
+import sys
 
+key = sys.argv[1]
 
-def crypt_text(mytext):
+encrypt = True if sys.argv[2].lower().strip() == 'encrypt' else False
 
-	key = input("Enter your Key :")
-	mylst = []
-	mode = "Encrypt" # or Decrypt
+text = "".join(sys.argv[3:])
 
-	for x in range(0,len(mytext)):
+def crypt_text(key, text, encrypt=True):
+	my_list = []
 
-		if mode == "Encrypt":
-			n_letter = ord(mytext[x])+int(key)
+	if encrypt:
+		for x in range(len(text)):
+			n_letter = ord(text[x])+int(key)
 			c_item = chr(n_letter)
-			mylst.append(c_item)
+			my_list.append(c_item)
 
-		if mode == "Decrypt":
-			n_letter = ord(mytext[x])-int(key)
+	else:
+		for x in range(len(text)):
+			n_letter = ord(text[x])-int(key)
 			ch = chr(n_letter)
-			mylst.append(ch)
+			my_list.append(ch)
 
-	return "".join(mylst)
+	return "".join(my_list)
 
-print(crypt_text("""Once you stop learning, you start dying."""))
+
+encrypted = crypt_text(key, text, encrypt=encrypt)
+
+with open('encrypted_text.txt', 'w') as file:
+	file.write(encrypted)
+	file.write('\nsuccess!')
