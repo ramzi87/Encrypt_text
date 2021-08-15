@@ -23,8 +23,9 @@ def crypt_text(key, text, encrypt=True):
 
 	return "".join(my_list)
 
-encrypted = crypt_text(key, text, encrypt=encrypt)
+final_txt = crypt_text(key, text, encrypt=encrypt)
 
-with open('encrypted_text.txt', 'w') as file:
-	file.write(encrypted)
-	file.write('\nsuccess!')
+if encrypt:
+	print(f'Encrypted text:\n{final_txt}')
+else:
+	print(f'Decrypted text:\n{final_txt}')
