@@ -1,4 +1,3 @@
-from os import lchown
 import sys
 
 key = sys.argv[1]
