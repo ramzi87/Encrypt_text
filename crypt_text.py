@@ -4,7 +4,7 @@ key = sys.argv[1]
 
 encrypt = True if sys.argv[2].lower().strip() == 'encrypt' else False
 
-text = "".join(sys.argv[3:])
+text = " ".join(sys.argv[3:])
 
 def crypt_text(key, text, encrypt=True):
 	my_list = []
