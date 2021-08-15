@@ -23,7 +23,6 @@ def crypt_text(key, text, encrypt=True):
 
 	return "".join(my_list)
 
-
 encrypted = crypt_text(key, text, encrypt=encrypt)
 
 with open('encrypted_text.txt', 'w') as file:
